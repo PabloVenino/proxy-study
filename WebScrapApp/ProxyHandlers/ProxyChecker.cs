@@ -5,7 +5,7 @@ namespace WebScrapApp.ProxyHandlers;
 
 internal class ProxyChecker
 {
-    private static SemaphoreSlim _semaphore = new(1, 1);
+    private static readonly SemaphoreSlim _semaphore = new(1, 1);
     private static int _currentProxyNumber = 0;
 
     public static async Task<List<string>> GetWorkingProxies(List<string> proxies)

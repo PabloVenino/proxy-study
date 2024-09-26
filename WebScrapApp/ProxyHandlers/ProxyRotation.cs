@@ -3,13 +3,13 @@ namespace WebScrapApp.ProxyHandlers;
 
 public class ProxyRotator
 {
-    private readonly List<string> _validProxies = new List<string>();
+    private readonly List<string> _validProxies = [];
     private readonly Random _random = new();
 
-    public ProxyRotator(string[] proxies, bool isLocal)
+    public ProxyRotator(string[] proxies, bool isLocal = true)
     {
         if (isLocal)
-            _validProxies.Add("");
+            _validProxies.Add("localhost:8080");
         else
             _validProxies = ProxyChecker.GetWorkingProxies([.. proxies]).Result;
 
