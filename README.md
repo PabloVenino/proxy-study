@@ -20,7 +20,11 @@ WebScrapApp/
 │   │   └── SqlConnectionFactory.cs
 │   └── InfraModule.cs
 │
-└── App/
+├── Core/
+│   ├── Models/
+│   │   └── ApiResponseDto.cs
+│   
+└── WebScrapApp/
     └── Program.cs (main entry point)
 ```
 
