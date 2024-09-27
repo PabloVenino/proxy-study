@@ -49,9 +49,9 @@ WebScrapApp/
 ## Getting Started
 
 1. **Setup MITMProxy**: You'll need a related Proxy for doing a lot of requests without blocking your IP, so I suggest you to use a MITMProxy lookalike.
-2. **Run the Application**: Execute the application using the following command:
+2. **Run the Application**: Execute the application using the following command: (Or just run it in Visual Studio :) )
    ```
-   dotnet run --project App
+   dotnet run --project WebScrapApp
    ```
 3. **Database Connection**: The application will connect to the SQL Server as configured in `SqlConnectionFactory`, using your ConnectionString, from the Program.cs
 
