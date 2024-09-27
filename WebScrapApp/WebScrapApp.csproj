@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WebScrap.Application\WebScrap.Application.csproj" />
+    <ProjectReference Include="..\WebScrap.Core\WebScrap.Core.csproj" />
     <ProjectReference Include="..\WebScrap.Infra\WebScrap.Infra.csproj" />
   </ItemGroup>
 
