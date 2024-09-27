@@ -12,6 +12,9 @@ internal class ProxyHttpClient
             UseProxy = true
         };
 
+        // Bypass for SLL Certificate
+        httpClienteHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sllPolicyErrors) => { return true; };
+
         return new HttpClient(httpClienteHandler);
     }
 }
