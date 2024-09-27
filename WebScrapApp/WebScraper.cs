@@ -1,14 +1,19 @@
 ﻿using HtmlAgilityPack;
+using WebScrap.Application.Abstractions;
 using WebScrapApp.ProxyHandlers;
 
 namespace WebScrapApp;
 
-public class WebScraper
+public class WebScraper(string connectionString, ISqlConnectionFactory connectionFactory)
 {
-    public static async Task ScrapeData(ProxyRotator proxyRotator, string url)
+    private readonly ISqlConnectionFactory _connectionFactory = connectionFactory;
+
+    public async Task ScrapeData(ProxyRotator proxyRotator, string url)
     {
         try
         {
+            _connectionFactory.CreateConnection(connectionString);
+
             var client = proxyRotator.ScrapeDataWithRandomProxy();
             var response = await client.GetAsync(url);
             var content = await response.Content.ReadAsStringAsync();

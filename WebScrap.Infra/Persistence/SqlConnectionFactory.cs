@@ -4,28 +4,15 @@ using WebScrap.Application.Abstractions;
 
 namespace WebScrap.Infra.Persistence;
 
-internal sealed class SqlConnectionFactory(IConfiguration configuration) : ISqlConnectionFactory
+internal sealed class SqlConnectionFactory() : ISqlConnectionFactory
 {
-    private readonly IConfiguration _config = configuration;
-
-    public SqlConnection CreateConnection()
-    {
-        string? connectionString = _config?["ConnectionStrings:Connection"];
-
-        if (connectionString == null)
-        {
-            throw new ArgumentNullException(nameof(connectionString));
-        }
-
-        return new SqlConnection(connectionString);
-    }
-
+    public SqlConnection CreateConnection(string connectionString) =>
+        connectionString == null ? throw new ArgumentNullException(nameof(connectionString)) : new SqlConnection(connectionString);
+    
+     
     public void CloseConnection(SqlConnection connection) 
     {
-        if (connection == null)
-        {
-            throw new ArgumentNullException(nameof(connection));
-        }
+        ArgumentNullException.ThrowIfNull(connection);
 
         connection.Close();
     }

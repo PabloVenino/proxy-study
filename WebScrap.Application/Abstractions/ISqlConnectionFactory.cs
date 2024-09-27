@@ -4,7 +4,7 @@ namespace WebScrap.Application.Abstractions;
 
 public interface ISqlConnectionFactory
 {
-    SqlConnection CreateConnection();
+    SqlConnection CreateConnection(string connectionString);
     void CloseConnection(SqlConnection connection);
 }
     

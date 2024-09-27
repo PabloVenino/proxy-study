@@ -1,6 +1,9 @@
 ﻿using WebScrapApp.ProxyHandlers;
 using Microsoft.Extensions.DependencyInjection;
 using WebScrap.Application;
+using WebScrap.Infra;
+using Microsoft.Extensions.Configuration;
+using WebScrap.Application.Abstractions;
 
 namespace WebScrapApp;
 
@@ -8,9 +11,23 @@ public class Program
 {
     static async Task Main(string[] args)
     {
+        Console.WriteLine("Inicio");
         var serviceCollection = new ServiceCollection();
         ConfigureServices(serviceCollection);
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+        
+        // Services Pipeline
+        var sqlFactory = serviceProvider.GetService<ISqlConnectionFactory>();
 
+
+        var builder = new ConfigurationBuilder()
+                .AddJsonFile($"appsettings.json", true, true);
+        
+        var config = builder.Build();
+
+        var connectionString = config["ConnectionString"];
+
+        
         // Put here your own list of Proxies, these are a free ones, that may not work.
         string[] proxies =
         {
@@ -20,12 +37,15 @@ public class Program
         };
 
         var proxyRotator = new ProxyRotator(proxies);
-        string urlToScrape = "https://www.wikipedia.org/";
-        await WebScraper.ScrapeData(proxyRotator, urlToScrape);
+        string urlToScrape = "http://www.wikipedia.org/";
+        var webScraper = new WebScraper(connectionString, sqlFactory);
+        await webScraper.ScrapeData(proxyRotator, urlToScrape);
     }
 
     public static void ConfigureServices(IServiceCollection services)
     {
-        services.AddApplication();
+        services
+            .AddApplication()
+            .AddInfra();
     }
 }
