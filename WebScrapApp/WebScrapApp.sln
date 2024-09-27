@@ -5,9 +5,11 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScrapApp", "WebScrapApp.csproj", "{81EDEC11-3614-41F2-B211-B3269B754A6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScrap.Infra", "..\WebScrap.Infra\WebScrap.Infra.csproj", "{CAFE2CD1-EB4C-431E-9FF9-43C92B4F1ECA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScrap.Infra", "..\WebScrap.Infra\WebScrap.Infra.csproj", "{CAFE2CD1-EB4C-431E-9FF9-43C92B4F1ECA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScrap.Application", "..\WebScrap.Application\WebScrap.Application.csproj", "{D6647C58-D6C8-4E51-B281-E14434DB680C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScrap.Application", "..\WebScrap.Application\WebScrap.Application.csproj", "{D6647C58-D6C8-4E51-B281-E14434DB680C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScrap.Core", "..\WebScrap.Core\WebScrap.Core.csproj", "{9197DDAC-EE79-4A08-8D6C-364DFEB89CEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D6647C58-D6C8-4E51-B281-E14434DB680C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6647C58-D6C8-4E51-B281-E14434DB680C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6647C58-D6C8-4E51-B281-E14434DB680C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9197DDAC-EE79-4A08-8D6C-364DFEB89CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9197DDAC-EE79-4A08-8D6C-364DFEB89CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9197DDAC-EE79-4A08-8D6C-364DFEB89CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9197DDAC-EE79-4A08-8D6C-364DFEB89CEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

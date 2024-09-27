@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using WebScrap.Application.Abstractions;
 using WebScrap.Infra.Persistence;
+using WebScrap.Application.Abstractions;
 
 namespace WebScrap.Infra;
 
